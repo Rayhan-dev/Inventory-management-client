@@ -1,0 +1,9 @@
+.navbar_item:hover{
+    color: orangered !important;
+}
+.inventory_name{
+    color:orangered !important;
+}
+.inventory_name span{
+    color: #9AE8FF  !important;
+}
