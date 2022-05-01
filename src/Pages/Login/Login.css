@@ -1,0 +1,17 @@
+.form_input{
+    border: 2px solid skyblue;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+.login_btn{
+    border: 3px solid skyblue;
+    padding: 10px 15px;
+    transition: 1s all;
+    border-radius: 10px;
+}
+.login_btn:hover{
+    background-color: skyblue;
+    border: 3px solid skyblue;
+    color: black;
+   ;
+}

@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const BookSection = () => {
+    const [books, setBooks] = useState([]);
+    fetch('http://localhost:5000/limitedBooks')
+        .then(res => res.json())
+        .then(data=>setBooks(data))
     return (
         <div>
-            <h1>this is 6 books</h1>
+            {books.length}
         </div>
     );
 };
