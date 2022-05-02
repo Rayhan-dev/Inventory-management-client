@@ -1,12 +1,40 @@
 import React, { useState } from "react";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import auth from "../../firebase.init";
+import Loading from "../Shared/Loading/Loading";
 import "./Login.css";
 const Login = () => {
-  const { register,watch, handleSubmit } = useForm();
-  const [email,password] = watch(["email", "password"]);
-  const onSubmit = (data) => console.log(data);
-  
+  const { register, watch, handleSubmit } = useForm();
+  const [
+    signInWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useSignInWithEmailAndPassword(auth);
+  const [email, password] = watch(["email", "password"]);
+  const onSubmit = (data) =>  signInWithEmailAndPassword(email, password);
+
+  let errorComponent;
+  let successComponent;
+  if (error) {
+    errorComponent= (
+      <div>
+        <p className="text-danger my-4">Error: {error.message}</p>
+      </div>
+    );
+  }
+  if (loading) {
+    return <Loading></Loading>;
+  }
+  if (user) {
+    successComponent= (
+      <div>
+        <p className="text-success my-4">Signed In User: {user.user.email}</p>
+      </div>
+    );
+  }
   return (
     <div className="container">
       <div className="row">
@@ -39,6 +67,8 @@ const Login = () => {
               type="submit"
             />
           </form>
+          {errorComponent}
+          {successComponent}
           <h6 className="mt-4">New On BookIpedia ?</h6>
           <Link
             className="fw-bold"

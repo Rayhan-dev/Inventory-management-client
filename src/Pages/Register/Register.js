@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { updateProfile } from "firebase/auth";
+import Loading from '../Shared/Loading/Loading';
 
 const Register = () => {
   const { register, watch, handleSubmit } = useForm();
@@ -15,22 +16,21 @@ const Register = () => {
     console.log(user);
   };
   let errorComponent;
-  let loadingComponente;
   let successComponent
   if (error) {
-    return (
+    errorComponent= (
       <div>
-        <p>Error: {error.message}</p>
+        <p className="text-danger my-4">Error: {error.message}</p>
       </div>
     );
   }
   if (loading) {
-    return <p>Loading...</p>;
+    return <Loading></Loading> ;
   }
   if (user) {
-    return (
+    successComponent= (
       <div>
-        <p>Registered User: {user.email}</p>
+        <p className="text-success my-4">Registered User: {user.user.email}</p>
       </div>
     );
   }
@@ -73,6 +73,8 @@ const Register = () => {
               type="submit"
             />
           </form>
+          {errorComponent}
+          {successComponent}
           <h6 className="pt-3">Already Have an account?</h6>
           <Link
             className="fw-bold"
