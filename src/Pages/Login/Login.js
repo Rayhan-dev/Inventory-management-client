@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import "./Login.css";
 const Login = () => {
+  const [loginData,setLoginData]=useState({})
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => setLoginData(data);
+  
   return (
     <div className="container">
       <div className="row">
@@ -20,12 +22,14 @@ const Login = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <input
               placeholder="Enter Your Emial"
+              type="email"
               className="w-75 form_input d-flex flex-col mx-auto mb-3"
               {...register("email")}
               required
             />
             <input
               placeholder="Pasword"
+              type="password"
               className="w-75 form_input d-flex flex-col mx-auto mb-3"
               {...register("password")}
               required

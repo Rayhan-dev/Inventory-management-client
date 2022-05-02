@@ -16,19 +16,22 @@ const Register = () => {
       <h1 className="py-3">Please Sign Up</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
-          placeholder="Last Name"
+              placeholder="Last Name"
+              type="text"
           className="w-75 h-10 form_input d-flex flex-col mx-auto mb-3"
           {...register("name")}
           required
         />
         <input
-          placeholder="Enter Your Emial"
+              placeholder="Enter Your Emial"
+              type="email"
           className="w-75 h-10 form_input d-flex flex-col mx-auto mb-3"
           {...register("email")}
           required
         />
         <input
-          placeholder="Pasword"
+              placeholder="Pasword"
+              type="password"
           className="w-75 h-10 form_input d-flex flex-col mx-auto mb-3"
           {...register("password")}
           required
