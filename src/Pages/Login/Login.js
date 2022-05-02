@@ -3,9 +3,9 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import "./Login.css";
 const Login = () => {
-  const [loginData,setLoginData]=useState({})
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => setLoginData(data);
+  const { register,watch, handleSubmit } = useForm();
+  const [email,password] = watch(["email", "password"]);
+  const onSubmit = (data) => console.log(data);
   
   return (
     <div className="container">
