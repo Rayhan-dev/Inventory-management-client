@@ -1,34 +1,36 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { updateProfile } from "firebase/auth";
 import Loading from '../Shared/Loading/Loading';
 
 const Register = () => {
   const { register, watch, handleSubmit } = useForm();
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const [name, email, password] = watch(["name", "email", "password"]);
   const onSubmit = (data) => {
     createUserWithEmailAndPassword(email, password);
-    console.log(user);
+    navigate(from, { replace: true });
   };
   let errorComponent;
   let successComponent
   if (error) {
-    errorComponent= (
+    errorComponent = (
       <div>
         <p className="text-danger my-4">Error: {error.message}</p>
       </div>
     );
   }
   if (loading) {
-    return <Loading></Loading> ;
+    return <Loading></Loading>;
   }
   if (user) {
-    successComponent= (
+    successComponent = (
       <div>
         <p className="text-success my-4">Registered User: {user.user.email}</p>
       </div>
