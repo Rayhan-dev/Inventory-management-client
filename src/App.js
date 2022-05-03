@@ -5,6 +5,9 @@ import Home from './Pages/Home/Home/Home';
 import { Route, Routes } from 'react-router-dom';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
+import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
+import ItemDetailsPage from './Pages/ItemDetailsPage/ItemDetailsPage';
+import InventoryPage from './Pages/InventoryPage/InventoryPage';
 
 function App() {
   return (
@@ -15,6 +18,9 @@ function App() {
         <Route path="/" element={<Home></Home>} />
         <Route path="/login" element={<Login></Login>} />
         <Route path="/register" element={<Register></Register>} />
+        <Route path='/inventory' element={<InventoryPage></InventoryPage>} />
+        <Route path='/inventory/:id' element={<ItemDetailsPage></ItemDetailsPage>} ></Route>
+        <Route path='*' element={<NotFoundPage></NotFoundPage>} />
       </Routes>
     </div>
   );

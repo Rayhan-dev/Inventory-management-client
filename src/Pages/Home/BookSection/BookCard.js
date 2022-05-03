@@ -1,8 +1,10 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const bookCard = ({ book }) => {
-  return (
+  
+    return (
     <div className="col-md-4 my-3 text-start">
       <Card style={{ width: "18rem" }}>
         <Card.Img variant="top" src={book.img} />
@@ -18,7 +20,7 @@ const bookCard = ({ book }) => {
           <p>
             <b>Supplier</b> : {book.supplier}
           </p>
-          <Button variant="primary">Update Item</Button>
+            <Link className="btn btn-primary" to={`/inventory/${book._id}`}>Update Item</Link>
         </Card.Body>
       </Card>
     </div>
