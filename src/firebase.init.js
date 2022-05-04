@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCMghKu-2qLkP-PSSzO0IGohc6obbtoA_Q",
-  authDomain: "inventory-management-sit-d4018.firebaseapp.com",
-  projectId: "inventory-management-sit-d4018",
-  storageBucket: "inventory-management-sit-d4018.appspot.com",
-  messagingSenderId: "1045562481339",
-  appId: "1:1045562481339:web:3737e7bc028bb6284be79e"
+  apiKey: "AIzaSyCC9yNN1i7fHgQ3iY1zbTc8Bz-IzhzC90g",
+  authDomain: "warehouse-management-31966.firebaseapp.com",
+  projectId: "warehouse-management-31966",
+  storageBucket: "warehouse-management-31966.appspot.com",
+  messagingSenderId: "818743099058",
+  appId: "1:818743099058:web:da7f71bfd168e56a1413ab"
 };
 
 // Initialize Firebase

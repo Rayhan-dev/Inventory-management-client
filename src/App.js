@@ -9,10 +9,11 @@ import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
 import ItemDetailsPage from './Pages/ItemDetailsPage/ItemDetailsPage';
 import InventoryPage from './Pages/InventoryPage/InventoryPage';
 import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
-    
+
     <div className="App">
       <Header></Header>
       <Routes>
@@ -20,11 +21,13 @@ function App() {
         <Route path="/login" element={<Login></Login>} />
         <Route path="/register" element={<Register></Register>} />
         <Route path='/inventory' element={<InventoryPage></InventoryPage>} />
-        <Route path='/inventory/:id' element={<RequireAuth>
-          <ItemDetailsPage></ItemDetailsPage>
-        </RequireAuth>} ></Route>
+        <Route path='/inventory/:id' element={
+          <RequireAuth>
+            <ItemDetailsPage></ItemDetailsPage>
+          </RequireAuth>} ></Route>
         <Route path='*' element={<NotFoundPage></NotFoundPage>} />
       </Routes>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }

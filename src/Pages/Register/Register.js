@@ -1,9 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import auth from "../../firebase.init";
+// import auth from "../../firebase.init";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import Loading from '../Shared/Loading/Loading';
+import auth from "../../firebase.init";
 
 const Register = () => {
   const { register, watch, handleSubmit } = useForm();
@@ -15,7 +16,6 @@ const Register = () => {
   const [name, email, password] = watch(["name", "email", "password"]);
   const onSubmit = (data) => {
     createUserWithEmailAndPassword(email, password);
-    navigate(from, { replace: true });
   };
   let errorComponent;
   let successComponent
@@ -30,6 +30,7 @@ const Register = () => {
     return <Loading></Loading>;
   }
   if (user) {
+    navigate(from, { replace: true });
     successComponent = (
       <div>
         <p className="text-success my-4">Registered User: {user.user.email}</p>

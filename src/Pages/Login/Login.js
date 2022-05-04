@@ -1,9 +1,9 @@
-import React, { useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading/Loading";
+import GoogleLogin from "./GoogleLogin/GoogleLogin";
 import "./Login.css";
 const Login = () => {
   const { register, watch, handleSubmit } = useForm();
@@ -17,15 +17,15 @@ const Login = () => {
     error,
   ] = useSignInWithEmailAndPassword(auth);
   const [email, password] = watch(["email", "password"]);
+
   const onSubmit = (data) => {
     signInWithEmailAndPassword(email, password);
-    navigate(from, { replace: true });
   }
 
   let errorComponent;
   let successComponent;
   if (error) {
-    errorComponent= (
+    errorComponent = (
       <div>
         <p className="text-danger my-4">Error: {error.message}</p>
       </div>
@@ -35,10 +35,12 @@ const Login = () => {
     return <Loading></Loading>;
   }
   if (user) {
-    successComponent= (
+    navigate(from, { replace: true });
+    successComponent = (
       <div>
         <p className="text-success my-4">Signed In User: {user.user.email}</p>
       </div>
+
     );
   }
   return (
@@ -73,6 +75,7 @@ const Login = () => {
               type="submit"
             />
           </form>
+          <GoogleLogin></GoogleLogin>
           {errorComponent}
           {successComponent}
           <h6 className="mt-4">New On BookIpedia ?</h6>
@@ -86,6 +89,7 @@ const Login = () => {
           >
             Register Now!
           </Link>
+          
         </div>
       </div>
     </div>
