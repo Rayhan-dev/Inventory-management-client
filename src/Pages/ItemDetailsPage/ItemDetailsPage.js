@@ -21,7 +21,7 @@ const ItemDetailsPage = () => {
                     <p><span className="fw-bold">Supplier Name</span>:{item.supplier}</p>
                     <p><span className="fw-bold">Description</span>  :{item.description}</p>
                     <div>
-                    <button className='btn btn-success'>Delivered</button>
+                    <button className='btn btn-success' >Delivered</button>
                         <form>
                             <input style={{"border":"1px solid black"}} type="text" />
                             <button className='btn btn-primary'>Restock</button>

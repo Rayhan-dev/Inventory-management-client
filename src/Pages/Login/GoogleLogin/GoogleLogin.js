@@ -15,7 +15,7 @@ const GoogleLogin = () => {
   if (error) {
     errorMsg = (
       <div>
-        <p>Error: {error.message}</p>
+        <p className='text-danger pt-2'>Error: {error.message}</p>
       </div>
     );
   }
@@ -39,9 +39,9 @@ const GoogleLogin = () => {
         <div className="col-md-10">
           Sign In with Google
         </div>
-        {errorMsg}
-        {successMsg}
       </div>
+      {errorMsg}
+      {successMsg}
     </div>
   );
 };
