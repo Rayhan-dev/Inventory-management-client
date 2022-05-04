@@ -1,19 +1,31 @@
 import React, { useState } from "react";
-import BookCard from "./BookCard";
+import BookTable from "./BookTable";
 const BookSection = () => {
-  
+
   const [books, setBooks] = useState([]);
   fetch("http://localhost:5000/limitedBooks")
     .then((res) => res.json())
     .then((data) => setBooks(data));
   return (
-    <div className="container my-5">
+    <div className=" my-5 table-responsive container">
       <h1 className="mb-5">Inventory Section</h1>
-      <div className="row">
+      <table className="table table-striped align-middle">
+        <thead>
+          <tr>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Supplier</th>
+          </tr>
+        </thead>
+        <tbody>
         {
-          books.map(book=><BookCard key={book._id} book={book}></BookCard> )
+          books.map(book => <BookTable key={book._id} book={book}></BookTable>)
         }
-      </div>
+        </tbody>
+      </table>
     </div>
   );
 };
