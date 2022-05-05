@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BookTable from "./BookTable";
 const BookSection = () => {
 
   const [books, setBooks] = useState([]);
-  fetch("http://localhost:5000/limitedBooks")
-    .then((res) => res.json())
-    .then((data) => setBooks(data));
+  useEffect(() => {
+    fetch("http://localhost:5000/limitedBooks")
+      .then((res) => res.json())
+      .then((data) => setBooks(data));
+  }, [setBooks])
   return (
     <div className=" my-5 table-responsive container">
       <h1 className="mb-5">Inventory Section</h1>
@@ -21,9 +23,9 @@ const BookSection = () => {
           </tr>
         </thead>
         <tbody>
-        {
-          books.map(book => <BookTable key={book._id} book={book}></BookTable>)
-        }
+          {
+            books.map(book => <BookTable key={book._id} book={book}></BookTable>)
+          }
         </tbody>
       </table>
     </div>
