@@ -3,6 +3,7 @@ import Banner from '../Banner/Banner';
 import BookSection from '../BookSection/BookSection';
 import Chart from '../Chart/Chart';
 import Footer from '../Footer/Footer';
+import MostItemInStock from '../MostItemInStock/MostItemInStock';
 
 const Home = () => {
     return (
@@ -10,6 +11,7 @@ const Home = () => {
             <Banner></Banner>
             <BookSection></BookSection>
             <Chart></Chart>
+            <MostItemInStock></MostItemInStock>
             <Footer></Footer>
         </div>
     );
