@@ -1,13 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const ItemDetailsPage = () => {
+const ItemDetailsPage =  () => {
     const { id } = useParams();
     const [item, setItem] = useState({});
     const url = `http://localhost:5000/inventory/${id}`
-    fetch(url)
-        .then(res => res.json())
-        .then(data => setItem(data))
+    useEffect(() => {
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setItem(data));
+    }, []);
+
+
+    const handleDeliver = () => {
+        const { quantity, ...rest } = item;
+        const newQuantity = quantity - 1;
+        const newItemValue = { quantity: newQuantity, ...rest };
+        setItem(newItemValue);
+         fetch(url, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ newItemValue })
+        })
+            .then (response => response.json())
+            .then (data => setItem(data));
+    }
     return (
         <div className='container'>
             <div className="row">
@@ -21,9 +38,9 @@ const ItemDetailsPage = () => {
                     <p><span className="fw-bold">Supplier Name</span>:{item.supplier}</p>
                     <p><span className="fw-bold">Description</span>  :{item.description}</p>
                     <div>
-                    <button className='btn btn-success' >Delivered</button>
+                        <button className='btn btn-success' onClick={handleDeliver}>Delivered</button>
                         <form>
-                            <input style={{"border":"1px solid black"}} type="text" />
+                            <input style={{ "border": "1px solid black" }} type="text" />
                             <button className='btn btn-primary'>Restock</button>
                         </form>
                     </div>

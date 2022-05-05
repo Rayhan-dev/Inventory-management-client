@@ -10,7 +10,6 @@ import ItemDetailsPage from './Pages/ItemDetailsPage/ItemDetailsPage';
 import InventoryPage from './Pages/InventoryPage/InventoryPage';
 import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
 import { ToastContainer } from 'react-toastify';
-import Chart from './Pages/Home/Chart/Chart';
 
 function App() {
   return (
