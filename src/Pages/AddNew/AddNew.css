@@ -1,0 +1,33 @@
+.formInput{
+    padding: 10px 10px;
+    border-bottom: 2px solid gainsboro;
+    margin:5px 0px;
+}
+.formInput:hover{
+    border-bottom:2px solid gray
+}
+.formInput:focus{
+    border: none;
+    border-bottom: 2px solid black;
+}
+.formInput:focus-visible{
+    outline: none;
+}
+
+.formInput::placeholder{
+    color: gray;
+}
+.formButton{
+    color: black;
+    border: 2px solid gray;
+    border-radius: 50px;
+    font-size: 16px;
+    margin: 10px 0px;
+    background-color: gainsboro;
+    padding: 10px 0px;
+    transition: 0.5s all ease;
+}
+.formButton:hover{
+    background-color: transparent;
+    border: 2px solid gray;
+}

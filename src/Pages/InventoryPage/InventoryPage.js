@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Usebooks from '../../Hooks/UseBooks/Usebooks';
 import InventoryTable from './InventoryTable';
 
@@ -22,7 +23,15 @@ const InventoryPage = () => {
     }
     return (
         <div className="container my-5">
-            <h1 className="mb-5">All Items</h1>
+            <div className="row">
+                <div className="col-md-9">
+                <h1 className="mb-5">All Items</h1>
+                </div>
+                <div className="col-md-3">
+                <Link className="btn btn-primary inventory-btn" to={`/addItem`}>Add New Item</Link>
+                </div>
+            </div>
+           
             <table className="table table-striped align-middle">
                 <thead>
                     <tr>
