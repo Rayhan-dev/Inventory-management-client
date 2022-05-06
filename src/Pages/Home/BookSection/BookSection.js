@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import BookTable from "./BookTable";
 const BookSection = () => {
 
@@ -28,6 +30,8 @@ const BookSection = () => {
           }
         </tbody>
       </table>
+      <Button as={Link} to={'/inventory'}>Manage Inventories</Button>
+      
     </div>
   );
 };

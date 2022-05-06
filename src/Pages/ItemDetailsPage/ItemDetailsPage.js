@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
+import { Link, useParams } from 'react-router-dom';
 
-const ItemDetailsPage =  () => {
+const ItemDetailsPage = () => {
     const { id } = useParams();
     const [item, setItem] = useState({});
     const url = `http://localhost:5000/inventory/${id}`;
@@ -9,36 +10,36 @@ const ItemDetailsPage =  () => {
         fetch(url)
             .then(res => res.json())
             .then(data => setItem(data));
-    }, [url,setItem]);
+    }, [url, setItem]);
 
 
     const handleDeliver = () => {
         const { quantity, ...rest } = item;
-        const newQuantity = quantity - 1;
-        const newItemValue = { quantity: newQuantity, ...rest };
+        const newQuantity = JSON.stringify(quantity - 1);
+        const newItemValue = { quantity: `${newQuantity}`, ...rest };
         setItem(newItemValue);
-         fetch(url, {
+        fetch(url, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ newItemValue })
         })
-            .then (response => response.json())
-            .then (data => setItem(data));
+            .then(response => response.json())
+            .then(data => setItem(data));
     }
     const handleRestockSubmit = (event) => {
         event.preventDefault();
-        const value = event.target.restock.value;
+        const value = parseInt(event.target.restock.value);
         const { quantity, ...rest } = item;
-        const newQuantity = quantity + parseInt(value);
-        const newItemValue = { quantity: newQuantity, ...rest };
+        const newQuantity = parseInt(quantity) + value;
+        const newItemValue = { quantity: `${newQuantity}`, ...rest };
         setItem(newItemValue);
-         fetch(url, {
+        fetch(url, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ newItemValue })
         })
-            .then (response => response.json())
-            .then (data => setItem(data));
+            .then(response => response.json())
+            .then(data => setItem(data));
 
     }
     return (
@@ -56,12 +57,13 @@ const ItemDetailsPage =  () => {
                     <div>
                         <button className='btn btn-success' onClick={handleDeliver}>Delivered</button>
                         <form onSubmit={handleRestockSubmit}>
-                            <input name='restock'  style={{ "border": "1px solid black" }} type="text" />
+                            <input name='restock' style={{ "border": "1px solid black" }} type="text" />
                             <button type='submit' className='btn btn-primary'>Restock</button>
                         </form>
                     </div>
                 </div>
             </div>
+            <Button  as={Link} to={'/inventory'}>Manage Inventories</Button>
         </div>
     );
 };
