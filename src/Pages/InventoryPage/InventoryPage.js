@@ -1,10 +1,22 @@
-import React, { useState } from 'react';
 import Usebooks from '../../Hooks/UseBooks/Usebooks';
-import BookTable from '../Home/BookSection/BookTable';
+import InventoryTable from './InventoryTable';
 
 
 const InventoryPage = () => {
-    const [books] = Usebooks();
+    const [books, setBooks] = Usebooks();
+   
+    const handleDelete = (id) => {
+        const url = `http://localhost:5000/inventory/${id}`;
+        fetch(url, {
+            method: 'DELETE',
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                const remaining = books.filter(book => book._id !== id);
+                setBooks(remaining);
+            })   
+    }
     return (
         <div className="container my-5">
             <h1 className="mb-5">All Items</h1>
@@ -21,7 +33,7 @@ const InventoryPage = () => {
                 </thead>
                 <tbody>
                     {
-                        books.map(book => <BookTable key={book._id} book={book}></BookTable>)
+                        books.map(book => <InventoryTable handleDelete={()=>handleDelete(book._id)} key={book._id} book={book}></InventoryTable>)
                     }
                 </tbody>
             </table>
