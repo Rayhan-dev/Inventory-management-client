@@ -1,11 +1,19 @@
+import { data } from 'autoprefixer';
+import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
-import Usebooks from '../../Hooks/UseBooks/Usebooks';
-import InventoryTable from './InventoryTable';
+import auth from '../../firebase.init';
+import InventoryTable from '../InventoryPage/InventoryTable';
 
-
-const InventoryPage = () => {
-    const [books, setBooks] = Usebooks();
-
+const MyItems = () => {
+    const [books, setBooks] = useState([]);
+    const [user] = useAuthState(auth);
+    const url = `http://localhost:5000/myitems?email=${user.email}`;
+    useEffect(() => {
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setBooks(data));
+    }, [setBooks]);
     const handleDelete = (id) => {
         const proceed = window.confirm("Do you want to delete this item?");
         if (proceed) {
@@ -22,16 +30,17 @@ const InventoryPage = () => {
         }
     }
     return (
+
         <div className="container my-5">
             <div className="row">
                 <div className="col-md-9">
-                <h1 className="mb-5">All Items</h1>
+                    <h1 className="mb-5">All Items</h1>
                 </div>
                 <div className="col-md-3">
-                <Link className="btn btn-primary inventory-btn" to={"/addItem"}>Add New Item</Link>
+                    <Link className="btn btn-primary inventory-btn" to={"/addItem"}>Add New Item</Link>
                 </div>
             </div>
-           
+
             <table className="table table-striped align-middle">
                 <thead>
                     <tr>
@@ -53,4 +62,4 @@ const InventoryPage = () => {
     );
 };
 
-export default InventoryPage;
+export default MyItems;

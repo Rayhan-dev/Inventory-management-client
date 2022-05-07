@@ -1,12 +1,17 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
+import auth from '../../firebase.init';
 import Usebooks from '../../Hooks/UseBooks/Usebooks';
 import "./AddNew.css"
 
 const AddNew = () => {
     const [books, setBooks] = Usebooks();
     const { register, handleSubmit } = useForm();
+    const [user] = useAuthState(auth);
+    console.log(user.email)
     const onSubmit = data => {
+        console.log(data);
         fetch('http://localhost:5000/books', {
             method: 'POST', 
             headers: {
@@ -26,13 +31,14 @@ const AddNew = () => {
             <div className="row">
                 <div className="col-md-6">
                     <form className='d-flex flex-col w-75 m-auto py-5 my-5 ' onSubmit={handleSubmit(onSubmit)}>
-                        <input className='formInput' placeholder='Name' {...register("name")} />
-                        <input className='formInput' placeholder='Price' {...register("price")} />
-                        <input className='formInput' placeholder='Quantity' {...register("quantity")} />
-                        <input className='formInput' placeholder='Supplier' {...register("supplier")} />
-                        <input className='formInput' placeholder='Author' {...register("author")} />
-                        <input className='formInput' placeholder='Desctiption' {...register("description")} />
-                        <input className='formInput' placeholder='Image URL' {...register("img")} />
+                        <input required className='formInput' placeholder='Name' {...register("name")} />
+                        <input required  className='formInput' placeholder='Email' {...register("email")} value={user.email} readOnly />
+                        <input required className='formInput' placeholder='Price' {...register("price")} />
+                        <input required className='formInput' placeholder='Quantity' {...register("quantity")} />
+                        <input required className='formInput' placeholder='Supplier' {...register("supplier")} />
+                        <input required className='formInput' placeholder='Author' {...register("author")} />
+                        <input required className='formInput' placeholder='Desctiption' {...register("description")} />
+                        <input required className='formInput' placeholder='Image URL' {...register("img")} />
                         <input className='formButton' type="submit" />
                     </form>
                 </div>

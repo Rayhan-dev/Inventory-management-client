@@ -20,11 +20,12 @@ const Header = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
               <Nav.Link className="navbar_item" as={Link} to={'/'}>Home</Nav.Link>
+              <Nav.Link className="navbar_item" as={Link} to={'/blogs'}>Blogs</Nav.Link>
               {
                 user && <>
                   <Nav.Link className="navbar_item" as={Link} to={'/inventory'}>Manage Item</Nav.Link>
                   <Nav.Link className="navbar_item" as={Link} to={'/addItem'}>Add Item</Nav.Link>
-                  <Nav.Link className="navbar_item" as={Link} to={'/'}>My Items</Nav.Link>
+                  <Nav.Link className="navbar_item" as={Link} to={'/myItems'}>My Items</Nav.Link>
                 </>
               }
               {
