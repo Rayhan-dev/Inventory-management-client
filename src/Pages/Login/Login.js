@@ -1,6 +1,7 @@
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading/Loading";
 import GoogleLogin from "./GoogleLogin/GoogleLogin";
@@ -18,6 +19,9 @@ const Login = () => {
   ] = useSignInWithEmailAndPassword(auth);
   const [email, password] = watch(["email", "password"]);
 
+  const [sendPasswordResetEmail] = useSendPasswordResetEmail(
+    auth
+  );
   const onSubmit = (data) => {
     signInWithEmailAndPassword(email, password);
   }
@@ -75,6 +79,10 @@ const Login = () => {
               type="submit"
             />
           </form>
+          <p className="py-3" style={{ "display": "inline" }}>Forgot Password? </p><button onClick={async () => {
+          await sendPasswordResetEmail(email);
+          toast('Sent email');
+        }} className="py-3 text-primary">Reset password now!</button>
           <GoogleLogin></GoogleLogin>
           {errorComponent}
           {successComponent}

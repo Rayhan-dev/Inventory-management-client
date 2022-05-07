@@ -5,17 +5,20 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import Loading from '../Shared/Loading/Loading';
 import auth from "../../firebase.init";
+import { useSendEmailVerification } from 'react-firebase-hooks/auth';
+import { toast } from "react-toastify";
+import { sendEmailVerification } from "firebase/auth";
 
 const Register = () => {
   const { register, watch, handleSubmit } = useForm();
   let navigate = useNavigate();
   let location = useLocation();
   let from = location.state?.from?.pathname || "/";
-  const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, user, loading, error] =useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
+
   const [name, email, password] = watch(["name", "email", "password"]);
-  const onSubmit = (data) => {
-    createUserWithEmailAndPassword(email, password);
+  const onSubmit = async(data) => {
+     createUserWithEmailAndPassword(email, password );
   };
   let errorComponent;
   let successComponent
@@ -36,6 +39,7 @@ const Register = () => {
         <p className="text-success my-4">Registered User: {user.user.email}</p>
       </div>
     );
+    
   }
   return (
     <div className="py-5 container">
