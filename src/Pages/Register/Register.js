@@ -5,8 +5,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import Loading from '../Shared/Loading/Loading';
 import auth from "../../firebase.init";
-import { useSendEmailVerification } from 'react-firebase-hooks/auth';
-import { toast } from "react-toastify";
 import { sendEmailVerification } from "firebase/auth";
 
 const Register = () => {

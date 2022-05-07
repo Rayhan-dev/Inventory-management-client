@@ -5,7 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 const ItemDetailsPage = () => {
     const { id } = useParams();
     const [item, setItem] = useState({});
-    const url = `http://localhost:5000/inventory/${id}`;
+    const url = `https://stark-fortress-57443.herokuapp.com/inventory/${id}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
