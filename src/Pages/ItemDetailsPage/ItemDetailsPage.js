@@ -45,25 +45,6 @@ const ItemDetailsPage = () => {
     }
     return (
         <div className='container vh-100'>
-            {/* <div className="row">
-                <div className="col-md-6 mx-auto ">
-                    <img className='img-fluid' src={item.img} alt="" />
-                </div>
-                <div className="col-md-6 text-start my-5 py-5 mx-auto">
-                    <p><span className="fw-bold">Name</span>  :{item.name}</p>
-                    <p><span className="fw-bold">Price</span>  :{item.price}</p>
-                    <p><span className="fw-bold">Quantity</span>  :{item.quantity}</p>
-                    <p><span className="fw-bold">Supplier Name</span>:{item.supplier}</p>
-                    <p><span className="fw-bold">Description</span>  :{item.description}</p>
-                    <div>
-                        <button className='btn btn-success' onClick={handleDeliver}>Delivered</button>
-                        <form onSubmit={handleRestockSubmit}>
-                            <input name='restock' style={{ "border": "1px solid black" }} type="text" />
-                            <button type='submit' className='btn btn-primary'>Restock</button>
-                        </form>
-                    </div>
-                </div>
-            </div> */}
             <div class="card mb-3 text-start detail-card my-5 ">
                 <div class="row g-0">
                     <div class="col-md-4 py-5 ">

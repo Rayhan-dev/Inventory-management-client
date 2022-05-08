@@ -8,7 +8,7 @@ const Footer = () => {
             <div className="row">
             <div className="col-md-6">
                 <Link className='px-2 fw-bold footer-link ' style={{"textDecoration":"none"}} to={"/addItem"}>Add New Item</Link>
-                <Link className='px-2 fw-bold footer-link' style={{"textDecoration":"none"}} to={"/blog"}>Blogs</Link>
+                <Link className='px-2 fw-bold footer-link' style={{"textDecoration":"none"}} to={"/blogs"}>Blogs</Link>
                 </div>
             <div className="col-md-6">
                 <p className='fw-bold copyText'>&copy;Rayhan,2022</p>
