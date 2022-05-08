@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
+import Loading from '../Shared/Loading/Loading';
 import "./ItemDetailsPage.css";
 
 const ItemDetailsPage = () => {
     const { id } = useParams();
     const [item, setItem] = useState({});
-    const url = `http://localhost:5000/inventory/${id}`;
+    const url = `https://stark-fortress-57443.herokuapp.com/inventory/${id}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -43,6 +44,7 @@ const ItemDetailsPage = () => {
             .then(data => setItem(data));
 
     }
+    
     return (
         <div className='container vh-100'>
             <div class="card mb-3 text-start detail-card my-5 ">

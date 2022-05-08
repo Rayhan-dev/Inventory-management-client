@@ -5,7 +5,7 @@ import "./MostItemInStock.css"
 const MostItemInStock = () => {
     const [topBooks, setTopBooks] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/mostInStock')
+        fetch('https://stark-fortress-57443.herokuapp.com/mostInStock')
             .then(res => res.json())
             .then(data => setTopBooks(data))
         // http://localhost:5000 

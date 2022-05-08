@@ -7,7 +7,7 @@ import InventoryTable from '../InventoryPage/InventoryTable';
 const MyItems = () => {
     const [books, setBooks] = useState([]);
     const [user] = useAuthState(auth);
-    const url = `http://localhost:5000/myitems?email=${user.email}`;
+    const url = `https://stark-fortress-57443.herokuapp.com/myitems?email=${user.email}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())

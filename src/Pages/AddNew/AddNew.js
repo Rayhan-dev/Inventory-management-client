@@ -12,7 +12,7 @@ const AddNew = () => {
     console.log(user.email)
     const onSubmit = data => {
         console.log(data);
-        fetch('http://localhost:5000/books', {
+        fetch('https://stark-fortress-57443.herokuapp.com/books', {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json',
