@@ -48,56 +48,63 @@ const Login = () => {
     );
   }
   return (
-    <div className="container">
+    <div className="container" style={{ "minHeight": "100vh" }}>
       <div className="row">
-        <div className="col-md-6">
+        <div className="col-md-6 py-5">
           <img
+            style={{
+              "border": "1px solid transparent",
+              "borderRadius": "50px"
+            }}
             className="img-fluid"
             src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-135.jpg?w=2000"
             alt=""
           />
         </div>
-        <div className="col-md-6">
+        <div className="col-md-6 ">
           <h1 className="py-4 my-5">Login to your Account</h1>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <input
-              placeholder="Enter Your Emial"
-              type="email"
-              className="w-75 form_input d-flex flex-col mx-auto mb-3"
-              {...register("email")}
-              required
-            />
-            <input
-              placeholder="Pasword"
-              type="password"
-              className="w-75 form_input d-flex flex-col mx-auto mb-3"
-              {...register("password")}
-              required
-            />
-            <input
-              className="login_btn d-flex flex-col mx-auto mb-2"
-              type="submit"
-            />
-          </form>
-          <p className="py-3" style={{ "display": "inline" }}>Forgot Password? </p><button onClick={async () => {
-          await sendPasswordResetEmail(email);
-          toast('Sent email');
-        }} className="py-3 text-primary">Reset password now!</button>
+          <div className="form mb-3">
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <input
+                placeholder="Enter Your Emial"
+                type="email"
+                className="w-75 form_input d-flex flex-col mx-auto mb-3"
+                {...register("email")}
+                required
+              />
+              <input
+                placeholder="Pasword"
+                type="password"
+                className="w-75 form_input d-flex flex-col mx-auto mb-3"
+                {...register("password")}
+                required
+              />
+              <input
+                className="login_btn  d-flex flex-col mx-auto mb-2"
+                type="submit"
+              />
+            </form>
+            <p className="py-3" style={{ "display": "inline" }}>Forgot Password? </p><button onClick={async () => {
+              await sendPasswordResetEmail(email);
+              toast('Sent email');
+            }} className="py-3 text-white">Reset password now!</button>
+          </div>
+
           <GoogleLogin></GoogleLogin>
           {errorComponent}
           {successComponent}
-          <h6 className="mt-4">New On BookIpedia ?</h6>
+          <p style={{ "display": "inline" }} className=" mt-4">New On BookIpedia? </p>
           <Link
-            className="fw-bold"
+
             style={{
-              color: "orangered",
+              color: "white",
               textDecoration: "none",
             }}
             to={"/register"}
           >
             Register Now!
           </Link>
-          
+
         </div>
       </div>
     </div>

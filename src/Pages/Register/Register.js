@@ -12,11 +12,11 @@ const Register = () => {
   let navigate = useNavigate();
   let location = useLocation();
   let from = location.state?.from?.pathname || "/";
-  const [createUserWithEmailAndPassword, user, loading, error] =useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
+  const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
   const [name, email, password] = watch(["name", "email", "password"]);
-  const onSubmit = async(data) => {
-     createUserWithEmailAndPassword(email, password );
+  const onSubmit = async (data) => {
+    createUserWithEmailAndPassword(email, password);
   };
   let errorComponent;
   let successComponent
@@ -37,54 +37,60 @@ const Register = () => {
         <p className="text-success my-4">Registered User: {user.user.email}</p>
       </div>
     );
-    
+
   }
   return (
-    <div className="py-5 container">
+    <div className="py-5 container" style={{ "minHeight": "100vh" }}>
       <div className="row">
         <div className="col-md-6">
           <img
-            className="img-fluid"
+            style={{
+              "border": "1px solid transparent",
+              "borderRadius": "50px"
+            }}
+            className="img-fluid my-5"
             src="https://thumbs.dreamstime.com/b/online-registration-sign-up-concept-young-woman-signing-login-to-account-smartphone-app-user-interface-secure-password-194944775.jpg"
             alt=""
           />
         </div>
         <div className="col-md-6">
           <h1 className="py-3">Please Sign Up</h1>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <input
-              placeholder="LastName"
-              type="text"
-              className="w-75 h-10 form_input d-flex flex-col mx-auto mb-3"
-              {...register("name")}
-              required
-            />
-            <input
-              placeholder="Enter Your Emial"
-              type="email"
-              className="w-75 h-10 form_input d-flex flex-col mx-auto mb-3"
-              {...register("email")}
-              required
-            />
-            <input
-              placeholder="Pasword"
-              type="password"
-              className="w-75 h-10 form_input d-flex flex-col mx-auto mb-3"
-              {...register("password")}
-              required
-            />
-            <input
-              className="login_btn d-flex flex-col mx-auto mb-2"
-              type="submit"
-            />
-          </form>
+          <div className="form mb-3">
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <input
+                placeholder="LastName"
+                type="text"
+                className="w-75 h-10 form_input d-flex flex-col mx-auto mb-3"
+                {...register("name")}
+                required
+              />
+              <input
+                placeholder="Enter Your Emial"
+                type="email"
+                className="w-75 h-10 form_input d-flex flex-col mx-auto mb-3"
+                {...register("email")}
+                required
+              />
+              <input
+                placeholder="Pasword"
+                type="password"
+                className="w-75 h-10 form_input d-flex flex-col mx-auto mb-3"
+                {...register("password")}
+                required
+              />
+              <input
+                className="login_btn d-flex flex-col mx-auto mb-2"
+                type="submit"
+              />
+            </form>
+          </div>
           {errorComponent}
           {successComponent}
-          <h6 className="pt-3">Already Have an account?</h6>
+          <p style={{"display":"inline"}} className="pt-3">Already Have an account?</p>
           <Link
             className="fw-bold"
             style={{
-              color: "orangered",
+              color: "white",
               textDecoration: "none",
             }}
             to={"/login"}

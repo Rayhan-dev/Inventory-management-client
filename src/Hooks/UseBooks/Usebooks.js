@@ -4,7 +4,7 @@ const Usebooks = () => {
     const [books, setBooks] = useState([]);
 
     useEffect(() => {
-        fetch("https://stark-fortress-57443.herokuapp.com/books")
+        fetch("http://localhost:5000/books")
             .then((res) => res.json())
             .then((data) => setBooks(data));
     }, [setBooks]);

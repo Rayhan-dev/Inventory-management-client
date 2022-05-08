@@ -1,0 +1,16 @@
+.banner_section{
+    background-image: linear-gradient(to right, #07102d, #151c37, #222741, #2f324b, #3c3e56);
+    color: #fff;
+    border: 1px solid #07102d;
+    border-radius: 50px;
+}
+.banner-image{
+    border: 1px soldi transparent;
+    border-radius: 20%;
+}
+.banner_section h1{
+    font-size: 48px;
+}
+.banner_section p{
+    color: rgb(150 153 166 ) !important;
+}

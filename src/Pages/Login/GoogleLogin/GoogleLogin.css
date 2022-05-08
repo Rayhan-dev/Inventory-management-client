@@ -1,7 +1,8 @@
 .google-btn{
     border-radius: 5px;
+    background-color: rgb(7 16 45 ) ;
+
 }
 .google-btn:hover{
-    border-color: skyblue !important;
     transition: 1s all ease-in-out ;
 }

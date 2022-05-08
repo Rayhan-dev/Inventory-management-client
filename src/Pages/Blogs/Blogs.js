@@ -3,7 +3,7 @@ import { Accordion } from 'react-bootstrap';
 
 const Blogs = () => {
     return (
-        <div className="container text-start my-5 py-5">
+        <div className="container text-start my-5 py-5 vh-100">
             <Accordion defaultActiveKey="0">
                 <Accordion.Item eventKey="0">
                     <Accordion.Header>Difference between javascript and nodeJs.</Accordion.Header>

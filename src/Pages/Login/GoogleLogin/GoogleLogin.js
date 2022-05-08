@@ -31,8 +31,8 @@ const GoogleLogin = () => {
     );
   }
   return (
-    <div onClick={() => signInWithGoogle()} style={{ "cursor": "pointer" }}>
-      <div className="row border border-2 border-solid border-slate-400 w-50 mx-auto py-2 google-btn">
+    <div className='pb-3' onClick={() => signInWithGoogle()} style={{ "cursor": "pointer" }}>
+      <div className="row w-50 mx-auto py-2 google-btn">
         <div className="col-md-2">
           <img className='img-fluid' src="http://www.altinawildlife.com/wp-content/uploads/2016/10/Google-app-icon-small.png" alt="" />
         </div>

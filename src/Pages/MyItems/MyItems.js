@@ -1,4 +1,3 @@
-import { data } from 'autoprefixer';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
@@ -8,7 +7,7 @@ import InventoryTable from '../InventoryPage/InventoryTable';
 const MyItems = () => {
     const [books, setBooks] = useState([]);
     const [user] = useAuthState(auth);
-    const url = `https://stark-fortress-57443.herokuapp.com/myitems?email=${user.email}`;
+    const url = `http://localhost:5000/myitems?email=${user.email}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -17,7 +16,7 @@ const MyItems = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm("Do you want to delete this item?");
         if (proceed) {
-            const url = `https://stark-fortress-57443.herokuapp.com/inventory/${id}`;
+            const url = `http://localhost:5000 /inventory/${id}`;
             fetch(url, {
                 method: 'DELETE',
             })
@@ -31,7 +30,7 @@ const MyItems = () => {
     }
     return (
 
-        <div className="container my-5">
+        <div className="container py-5 vh-100">
             <div className="row">
                 <div className="col-md-9">
                     <h1 className="mb-5">All Items</h1>
@@ -41,7 +40,8 @@ const MyItems = () => {
                 </div>
             </div>
 
-            <table className="table table-striped align-middle">
+            <div className="book_table">
+            <table className="table text-white align-middle">
                 <thead>
                     <tr>
                         <th scope="col">Image</th>
@@ -58,6 +58,7 @@ const MyItems = () => {
                     }
                 </tbody>
             </table>
+            </div>
         </div>
     );
 };

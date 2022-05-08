@@ -8,14 +8,14 @@ const Chart = () => {
     return (
 
         <div>
-            <h1 className='py-3' style={{ "color": "orangered" }}>Overview of Quantity of books in stock</h1>
-            <small className='text-primary'>hover or click on the chart to view details</small>
-            <div className='w-50 mx-auto border-3 my-5 border-black rounded-lg' >
+            <h1 className='py-3 text-white' >Overview of Quantity of books in stock</h1>
+            <small style={{"color": "rgb(150 153 166 )"}} >hover or click on the chart to view details</small>
+            <div style={{"border":"3px solid #fff","borderRadius":"50px"}} className='mt-5 w-50 mx-auto ' >
             <ResponsiveContainer width="100%" height={400}>
                 <LineChart data={books}>
                     <Tooltip />
                     <XAxis style={{"display":"none"}} dataKey="name"></XAxis>
-                    <Line type="monotone" dataKey="quantity" stroke="orangered" strokeWidth={5} />
+                    <Line type="monotone" dataKey="quantity" stroke="rgb(139 92 246 )" strokeWidth={5} />
                 </LineChart>
             </ResponsiveContainer>
             </div>

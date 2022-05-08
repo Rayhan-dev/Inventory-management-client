@@ -1,0 +1,9 @@
+.footer-link{
+    color: rgb(255 255 255) !important;
+}
+.footer-link:hover{
+    color: rgb(139 92 246 ) !important;
+}
+.footer-div{
+    background-color: rgb(7 16 45 ) !important;
+}

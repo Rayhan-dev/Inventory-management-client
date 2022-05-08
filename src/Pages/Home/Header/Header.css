@@ -1,6 +1,10 @@
 .navbar_item:hover{
-    color: orangered !important;
+    color: rgb(139 92 246 ) !important;
 }
-.inventory_name span{
-    color:orangered !important;
+.navbar_item{
+    color: rgb(255 255 255) !important;
 }
+.nav_menu{
+    background-color: transparent !important;
+}
+

@@ -13,9 +13,9 @@ const Header = () => {
   }
   return (
     <div>
-      <Navbar bg="light" expand="lg">
+      <Navbar className="nav_menu pt-3" bg="light" expand="lg">
         <Container>
-          <Navbar.Brand as={Link} to={'/'} className="inventory_name"><span>Book</span>Ipedia</Navbar.Brand>
+          <Navbar.Brand as={Link} to={'/'} className="inventory_name text-white fw-bold"><span>Book</span>Ipedia</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">

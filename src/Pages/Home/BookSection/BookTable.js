@@ -12,7 +12,7 @@ const BookTable = ({ book }) => {
       <td>{price}</td>
       <td>{quantity}</td>
       <td>{supplier}</td>
-      <td><Link className="btn btn-primary inventory-btn" to={`/inventory/${book._id}`}>Update Item</Link></td>
+      <td><Link className="btn btn-primary inventory-btn" to={`/inventory/${book._id}`}>Update</Link></td>
     </tr>
   );
 };
