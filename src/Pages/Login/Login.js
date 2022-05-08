@@ -66,7 +66,7 @@ const Login = () => {
           <div className="form mb-3">
             <form onSubmit={handleSubmit(onSubmit)}>
               <input
-                placeholder="Enter Your Emial"
+                placeholder="Enter Your Email"
                 type="email"
                 className="w-75 form_input d-flex flex-col mx-auto mb-3"
                 {...register("email")}
