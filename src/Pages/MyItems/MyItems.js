@@ -16,7 +16,7 @@ const MyItems = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm("Do you want to delete this item?");
         if (proceed) {
-            const url = `http://localhost:5000 /inventory/${id}`;
+            const url = `https://stark-fortress-57443.herokuapp.com/inventory/${id}`;
             fetch(url, {
                 method: 'DELETE',
             })
