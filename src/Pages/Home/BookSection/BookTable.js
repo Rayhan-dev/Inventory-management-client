@@ -5,7 +5,7 @@ import "./BookTable.css"
 const BookTable = ({ book }) => {
   const { img, name, description, price, quantity, supplier } = book;
   return (
-    <tr>
+   <tr>
       <td><img style={{ "height": "100px", "width": "60px" }} src={img} alt="" /></td>
       <td>{name}</td>
       <td>{description}</td>

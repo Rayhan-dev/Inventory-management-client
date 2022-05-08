@@ -32,10 +32,10 @@ const InventoryPage = () => {
                 </div>
             </div>
            
-            <div className="book_table">
-            <table className="table text-white align-middle">
+            <div className="book_table_div">
+            <table className="table book_table text-white align-middle">
                 <thead>
-                    <tr>
+                   <tr>
                         <th scope="col">Image</th>
                         <th scope="col">Name</th>
                         <th scope="col">Description</th>

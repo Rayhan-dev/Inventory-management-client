@@ -14,10 +14,10 @@ const BookSection = () => {
   return (
     <div className=" my-5 table-responsive container">
       <h1 className="mb-5">Inventory Section</h1>
-      <div className="div book_table">
-      <table className="table text-white  align-middle">
+      <div className="book_table_div">
+      <table className="table text-white book_table  align-middle">
         <thead>
-          <tr className="text-white fs-5">
+          <tr className="py-2 text-white fs-5">
             <th scope="col">Image</th>
             <th scope="col">Name</th>
             <th scope="col">Description</th>

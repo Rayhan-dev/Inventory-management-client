@@ -1,8 +1,9 @@
 .book_table{
     background-image: linear-gradient(to right, #07102d, #151c37, #222741, #2f324b, #3c3e56) ;
-    color: #fff !important;
-    border: 1px solid #07102d;
+    color: #ffffff !important;
+    border:1px solid transparent;
     border-radius: 50px;
-    padding: 20px;
+    
 }
+
 
